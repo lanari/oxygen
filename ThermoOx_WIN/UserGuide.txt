@@ -1,0 +1,14 @@
+ThermoOx version 1.0.1 USER GUIDE
+
+1) Run ThermoOx but typing "ThermoOx" in the Matlab Command window
+2) Select the DBOXYGEN database version 
+3) Select phase 1. If it is a solid solution, select the end memeber fractions (0 to 1).
+4) Input the d18O composition of phase 1 (‰ VSMOW)
+5) Input the uncertainty on the measurement (1 sigma)
+6) Select phase 2. If it is a solid solution, select the end memeber fractions (0 to 1).
+7) Input the d18O composition of phase 2 (‰ VSMOW)
+8) Input the uncertainty on the measurement (1 sigma)
+9) CALCULATE!
+
+> Do not modify the name of the SSModel.txt files
+> All the available databases must be stored in the folder "Databases"
