@@ -1,0 +1,103 @@
+! Input file for PTloop program V2.0.0
+! Alice Vho (alice.vho@geo.unibe.ch) & Pierre Lanari
+!
+!
+! >> INIT
+! DODB: Oxygen fractionation database
+! ROCK: 1 = lower unit, 2 = upper unit
+! SAMP: * NAMEROCK (no space)
+! THIC: Thickness of the rock column (in m, assuming 1 m for both X and Y)
+! DENS: Intial density of the rock (kg/m^3)
+! BULO: Initial oxygen isotopic bulk of the rock
+! FLUI: Fluid phase to be fractionated. The name must be the same as in the thermodynamic database
+! INTE: For Rock 1 = Fraction of the fluid infiltrating the upper unit    Fraction of the fluid leaving the system
+!	For Rock 2 = 1 (all the released fluid leaves the system)
+! THDB: Therodynamic database
+! SYST: DO NOT CHANGE THE ORDER OF MAJOR ELEMENT OXIDES
+! BULK: Initial major element oxide composition (%wt)
+! NH2O: Initial moles of water
+! NOFI: Initial moles of oxygen (? = moles will be calculated by Theriak)
+! NCFI: Initial moles of carbon
+! NEXO: Initial moles of excess oxygen
+!
+! >> LOPT
+! MINT: Minimum temperature (°C)
+! MAXT: Maximum temperature (°C)
+! MINP: Minimum pressure (bar)
+! MAXP: Maximum pressure (bar)
+! STPT: Temperature step (°C)
+! STPP: Pressure step (bar)  
+! FRAC: Solid phase(s) to be fractionated
+!
+!>> DO18 (This input are used for the 1 rock type model)
+! MODE: 1 = only 1 rock type
+! BULK: Initial oxygen isotopic bulk of the rock
+!
+!>> LOOP
+! STEP: T(°C)   P(bar) for constrained intermediate steps. DO NOT LEAVE EMPTY ROWS BETWEEN STEPS
+
+
+>> INIT
+* DODB: DO18db2.0.3.dat 
+* ROCK: 1 --------------------------------------------
+* SAMP: * MORB(Gale&al2013)
+* THIC: 1000
+* DENS: 3300
+* BULO: 5.7
+* FLUI: water.fluid
+* INTE: 0.00001  0.99999
+* THDB: tc55.txt
+* SYST: SIO2 TIO2 AL2O3 FEO FE2O3 MNO MGO CAO NA2O K2O
+* BULK: 50.47 1.68 14.70 10.43 0.0 0.0 7.58 11.39	2.79 0.16
+* NH2O: 0.60
+* NOFI: ?
+* NCFI: 0.00
+* NEXO: 0.00
+* ROCK: 2 --------------------------------------------
+* SAMP: * NannoOoze(Plank2014)
+* THIC: 75
+* DENS: 2800
+* BULO: 25
+* FLUI: water.fluid
+* INTE: 1
+* THDB: tc55.txt
+* SYST: SIO2 TIO2 AL2O3 FEO FE2O3 MNO MGO CAO NA2O K2O
+* BULK: 32.36 0.4 8.78 2.91 0.0 0.0	1.45	23.16	1.96	1.66
+* NH2O: 0.20
+* NOFI: ?
+* NCFI: 0.41
+* NEXO: 0.00
+
+>> LOPT
+* MINT: 350
+* MAXT: 700
+* MINP: 5000
+* MAXP: 30000
+* STPT: 16
+* STPP: 16
+* FRAC: GARNET
+
+
+>> DO18
+* MODE: 1
+* BULK: 5.7
+
+>> LOOP
+* STEP: 350 13000
+* STEP: 400 16000
+* STEP: 500 20000
+* STEP: 600 23000
+* STEP: 700 26000
+
+
+
+
+
+
+
+
+
+
+
+
+
